@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sampada Kulkarni - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --accent: #06b6d4;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,60 0,100"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            color: var(--accent);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main {
+            margin: -40px 0 0 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            background: var(--bg-white);
+            margin-bottom: 2rem;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .stats {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            padding: 2rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .experience-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .company {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .duration {
+            background: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(4px);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: var(--bg-white);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Education Section */
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .education-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .education-date {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .education-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="hero">
+                <h1>Sampada Kulkarni</h1>
+                <p class="subtitle">Software Engineer & MS Computer Science Student</p>
+                <div class="contact-info">
+                    <a href="mailto:kulkarni.samp@northeastern.edu" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        kulkarni.samp@northeastern.edu
+                    </a>
+
+                    <a href="https://linkedin.com/in/samkul-swe" class="contact-item" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/samkul-swe" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i>
+                        View Projects
+                    </a>
+                    <a href="#experience" class="btn btn-outline">
+                        <i class="fas fa-briefcase"></i>
+                        Experience
+                    </a>
+                    <a href="#" class="btn btn-outline" onclick="downloadResume()">
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section" id="about">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm an experienced software engineer with 3+ years of expertise in MLOps, AI testing, and enterprise software development. Currently pursuing my Master's in Computer Science at Northeastern University (graduating December 2025), I bring a unique blend of academic knowledge and industry experience.</p>
+                        
+                        <p>At IBM, I've contributed to cutting-edge monitoring solutions, developed sophisticated automation systems, and helped launch innovative products like IBM Instana's Business Monitoring system. My work has consistently focused on building scalable, efficient solutions that drive real business impact.</p>
+                        
+                        <p>I'm passionate about leveraging technology to solve complex problems and am actively seeking full-time software engineering opportunities starting January 2026, as well as fall 2025 internship positions.</p>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Experience</span>
+                            <span class="stat-value">3+ Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">GPA</span>
+                            <span class="stat-value">3.83/4.0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Graduation</span>
+                            <span class="stat-value">Dec 2025</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Availability</span>
+                            <span class="stat-value">Jan 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="experience">
+                <h2 class="section-title">Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Engineer</div>
+                            <div class="company">IBM Instana</div>
+                        </div>
+                        <div class="duration">Jan 2023 – Nov 2023</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Developed comprehensive Java instrumentation API code connecting 3 BPM platforms (Camunda, IBM BAW, Red Hat) with IBM Instana, enabling real-time visibility between IT infrastructure failures and business processes for customers</li>
+                        <li>Resolved critical integration issues between cross-functional team components through collaborative debugging and technical leadership, helping successfully launch IBM Instana's first Business Monitoring product</li>
+                        <li>Standardized development processes through implementation of streamlined testing protocols and modular design patterns, resulting in significantly accelerated development cycles and improved product quality metrics</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Developer</div>
+                            <div class="company">IBM</div>
+                        </div>
+                        <div class="duration">Jan 2021 – Dec 2022</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Engineered sophisticated automated metric inference system supporting both Sysdig and Instana data formats, accelerating evaluation efficiency by <strong>10x</strong> while ensuring seamless cross-platform compatibility</li>
+                        <li>Reduced complex algorithm evaluation time from <strong>2 hours to 10 minutes</strong> by designing and implementing an intelligent Event-grouping service with custom ground truth generation</li>
+                        <li>Led development of robust systematic fault simulation for QoTD and Sockshop microservice applications, enabling continuous integration testing within algorithm inference pipelines</li>
+                        <li>Created comprehensive end-to-end anomaly detection evaluation suite that systematically identified <strong>5 missed patterns and 20-25 false positives</strong>, featuring interactive time-series visualizations</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" id="projects">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-title">
+                            <i class="fas fa-shield-alt"></i>
+                            The ROBIN
+                        </h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TF-IDF</span>
+                            <span class="tech-tag">SMOTE</span>
+                            <span class="tech-tag">Ensemble Learning</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Beautiful Soup</span>
+                        </div>
+                        <p class="project-description">
+                            Developed a machine learning system to detect fraudulent job postings, achieving <strong>92% accuracy</strong> through ensemble learning approach. Created an explainable detection system that identifies linguistic patterns in fraudulent listings and provides transparent reasoning.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/samkul-swe/The-Robin" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">
+                            <i class="fas fa-map-marked-alt"></i>
+                            TravelPal
+                        </h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android Studio</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Google Gemini API</span>
+                            <span class="tech-tag">Google Maps SDK</span>
+                        </div>
+                        <p class="project-description">
+                            Engineered a feature-rich mobile application that generates personalized travel itineraries for budget-conscious students. Integrated Gemini API for natural language processing and implemented comprehensive Firebase authentication with offline capabilities.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/samkul-swe/TravelPal" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">
+                            <i class="fas fa-robot"></i>
+                            MindMelt
+                        </h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">OpenAI API</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <p class="project-description">
+                            <em>Recent Project</em> - Built a personalized AI learning platform that generates targeted questions for computer science students, creating an interactive study experience through reverse-engineered conversational AI.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/in/samkul-swe/MindMelt" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">
+                            <i class="fas fa-recycle"></i>
+                            SUYT - Suit Up Your Trash
+                        </h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">React Native</span>
+                        </div>
+                        <p class="project-description">
+                            <em>Recent Project</em> - Developed an AI-powered mobile application that identifies waste items through image recognition and provides personalized recycling recommendations to promote better environmental practices.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/in/samkul-swe/SUYT" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Languages & Frameworks</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">Flask</span>
+                            <span class="skill-item">Android Studio</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cloud"></i> Infrastructure & DevOps</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Kubernetes</span>
+                            <span class="skill-item">OpenShift</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">CI/CD</span>
+                            <span class="skill-item">Git/GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-line"></i> Monitoring & Analytics</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">IBM Instana</span>
+                            <span class="skill-item">Watson AIOps</span>
+                            <span class="skill-item">Sysdig</span>
+                            <span class="skill-item">Time Series Analysis</span>
+                            <span class="skill-item">Anomaly Detection</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Ensemble Learning</span>
+                            <span class="skill-item">Text Analysis</span>
+                            <span class="skill-item">Pattern Recognition</span>
+                            <span class="skill-item">TF-IDF</span>
+                            <span class="skill-item">SMOTE</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cogs"></i> Domain Expertise</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">BPM (Camunda)</span>
+                            <span class="skill-item">IBM BAW</span>
+                            <span class="skill-item">Red Hat PAM</span>
+                            <span class="skill-item">MLOps</span>
+                            <span class="skill-item">Microservices</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Tools & Platforms</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Firebase</span>
+                            <span class="skill-item">Google Maps SDK</span>
+                            <span class="skill-item">Jest</span>
+                            <span class="skill-item">Enzyme</span>
+                            <span class="skill-item">Beautiful Soup</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="education">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3>Master of Science in Computer Science</h3>
+                        <div class="education-details">
+                            <strong>Northeastern University</strong> • GPA: 3.83/4.00<br>
+                            <em>Coursework:</em> Programming Design Paradigms, Algorithms, Mobile App Development, Privacy & Security, Foundations of AI, Computer Systems
+                        </div>
+                    </div>
+                    <div class="education-date">Dec 2025</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3>Bachelor of Technology in Computer Science</h3>
+                        <div class="education-details">
+                            <strong>Vishwakarma Institute of Information Technology</strong>
+                        </div>
+                    </div>
+                    <div class="education-date">May 2021</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Let's connect and build something amazing together!</p>
+                <div class="social-links">
+                    <a href="mailto:kulkarni.samp@northeastern.edu" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/samkul-swe" class="social-link" title="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/samkul-swe" class="social-link" title="GitHub" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2025 Sampada Kulkarni. Available for full-time opportunities starting January 2026.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Add hover effects for skill items
+        document.querySelectorAll('.skill-item').forEach(skill => {
+            skill.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.05)';
+            });
+            
+            skill.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect to the hero title
+        const heroTitle = document.querySelector('.hero h1');
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after a short delay
+        setTimeout(typeWriter, 500);
+    </script>
+</body>
+</html>
