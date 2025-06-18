@@ -960,10 +960,23 @@
 
         // Resume download function
         function downloadResume() {
+            // For GitHub Pages, use the full path
+            const repoName = window.location.pathname.split('/')[1]; // Gets repo name from URL
+            let resumePath;
+            
+            if (repoName && repoName !== '') {
+                // If hosted on GitHub Pages with repo name (username.github.io/repo-name)
+                resumePath = `/${repoName}/resume.pdf`;
+            } else {
+                // If hosted on personal GitHub Pages (username.github.io)
+                resumePath = '/resume.pdf';
+            }
+            
             // Create a link element and trigger download
             const link = document.createElement('a');
-            link.href = './resume.pdf'; // Path to your resume file
-            link.download = 'Sampada_Kulkarni_Resume.pdf'; // Downloaded filename
+            link.href = resumePath;
+            link.download = 'Sampada_Kulkarni_Resume.pdf';
+            link.target = '_blank'; // Opens in new tab as fallback
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
