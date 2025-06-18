@@ -17,6 +17,7 @@
             --primary-dark: #1e40af;
             --secondary: #64748b;
             --accent: #06b6d4;
+            --success: #10b981;
             --bg-light: #f8fafc;
             --bg-white: #ffffff;
             --text-primary: #1e293b;
@@ -24,6 +25,7 @@
             --border: #e2e8f0;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
         }
 
         body {
@@ -39,11 +41,11 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Enhanced Header with Better Visual Hierarchy */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: var(--gradient);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             position: relative;
             overflow: hidden;
         }
@@ -66,46 +68,62 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 4rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             background: linear-gradient(45deg, #ffffff, #e0f2fe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero .contact-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .contact-item:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             color: var(--accent);
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -113,13 +131,14 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 12px 24px;
-            border-radius: 8px;
+            gap: 0.7rem;
+            padding: 14px 28px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            font-size: 1rem;
         }
 
         .btn-primary {
@@ -131,42 +150,48 @@
         .btn-primary:hover {
             background: transparent;
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
 
         .btn-outline {
             background: transparent;
             color: white;
-            border-color: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .btn-outline:hover {
             background: white;
             color: var(--primary);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* Main Content */
+        /* Enhanced Main Content */
         .main {
-            margin: -40px 0 0 0;
+            margin: -60px 0 0 0;
             position: relative;
             z-index: 2;
         }
 
         .section {
             background: var(--bg-white);
-            margin-bottom: 2rem;
-            border-radius: 16px;
-            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border-radius: 20px;
+            padding: 3.5rem;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
             color: var(--text-primary);
             position: relative;
             display: inline-block;
@@ -175,40 +200,50 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 3px;
         }
 
-        /* About Section */
+        /* Enhanced About Section */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
+            grid-template-columns: 1fr 320px;
+            gap: 3.5rem;
             align-items: start;
         }
 
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.8;
             color: var(--text-secondary);
         }
 
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
         .stats {
             background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stats:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
         }
 
         .stat-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -219,22 +254,25 @@
         .stat-label {
             font-weight: 600;
             color: var(--text-primary);
+            font-size: 1.1rem;
         }
 
         .stat-value {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary);
+            font-size: 1.2rem;
         }
 
-        /* Experience Section */
+        /* Enhanced Experience Section */
         .experience-item {
-            padding: 2rem;
+            padding: 2.5rem;
             border: 2px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            background: var(--bg-white);
         }
 
         .experience-item::before {
@@ -242,14 +280,14 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
+            width: 5px;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--accent));
+            background: var(--gradient);
         }
 
         .experience-item:hover {
             border-color: var(--primary);
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
@@ -257,30 +295,31 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .experience-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
         .company {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .duration {
-            background: var(--bg-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
+            background: var(--gradient);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
         }
 
         .achievements {
@@ -289,9 +328,11 @@
 
         .achievements li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
             color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .achievements li::before {
@@ -299,21 +340,27 @@
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-size: 0.8rem;
+            font-size: 1rem;
+            top: 2px;
         }
 
-        /* Projects Section */
+        .achievements strong {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Enhanced Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
         }
 
         .project-card {
             background: var(--bg-white);
             border: 2px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 2.5rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -325,52 +372,65 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 5px;
+            background: var(--gradient);
         }
 
         .project-card:hover {
             border-color: var(--primary);
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
         }
 
         .project-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
             color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
+        }
+
+        .project-title i {
+            color: var(--primary);
+            font-size: 1.3rem;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
             background: var(--bg-light);
             color: var(--text-secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
         }
 
         .project-description {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         .project-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .project-link {
@@ -379,154 +439,182 @@
             gap: 0.5rem;
             color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 2px solid transparent;
         }
 
         .project-link:hover {
-            color: var(--primary-dark);
-            transform: translateX(4px);
+            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateX(5px);
         }
 
-        /* Skills Section */
+        /* Enhanced Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .skill-category {
             background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
         .skill-category h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
             color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary);
+            font-size: 1.2rem;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.7rem;
         }
 
         .skill-item {
             background: var(--bg-white);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            padding: 0.7rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--text-primary);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .skill-item:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            border-color: var(--primary);
         }
 
-        /* Education Section */
+        /* Enhanced Education Section */
         .education-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem;
+            padding: 2rem;
             background: var(--bg-light);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
         }
 
         .education-content h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
         }
 
         .education-details {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .education-date {
-            background: var(--primary);
+            background: var(--gradient);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            min-width: 120px;
         }
 
-        /* Footer */
+        /* Enhanced Footer */
         .footer {
             background: var(--text-primary);
             color: white;
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
+            padding: 4rem 0;
+            margin-top: 5rem;
         }
 
         .footer-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: var(--primary);
             color: white;
             border-radius: 50%;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
 
         .social-link:hover {
             background: var(--accent);
-            transform: translateY(-4px);
+            transform: translateY(-5px) scale(1.1);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             
             .hero .contact-info {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
             
             .projects-grid {
@@ -539,21 +627,25 @@
             }
             
             .section {
-                padding: 2rem;
+                padding: 2.5rem;
             }
             
             .education-item {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1rem;
+                gap: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
             }
         }
 
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -561,13 +653,38 @@
             }
         }
 
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
         .section {
-            animation: fadeInUp 0.6s ease-out;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .btn:hover {
+            animation: pulse 0.3s ease;
         }
 
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loaded {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -576,13 +693,13 @@
         <div class="container">
             <div class="hero">
                 <h1>Sampada Kulkarni</h1>
-                <p class="subtitle">Software Engineer & MS Computer Science Student</p>
+                <p class="subtitle">Software Engineer & AI/ML Expert</p>
+                <p class="tagline">3+ years building enterprise monitoring solutions at IBM • MS Computer Science @ Northeastern</p>
                 <div class="contact-info">
                     <a href="mailto:kulkarni.samp@northeastern.edu" class="contact-item">
                         <i class="fas fa-envelope"></i>
                         kulkarni.samp@northeastern.edu
                     </a>
-
                     <a href="https://linkedin.com/in/samkul-swe" class="contact-item" target="_blank">
                         <i class="fab fa-linkedin"></i>
                         LinkedIn
@@ -603,7 +720,7 @@
                     </a>
                     <a href="#" class="btn btn-outline" onclick="downloadResume()">
                         <i class="fas fa-download"></i>
-                        Download Resume
+                        Resume
                     </a>
                 </div>
             </div>
@@ -612,15 +729,17 @@
 
     <main class="main">
         <div class="container">
-            <section class="section" id="about">
+            <section class="section loading" id="about">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I'm an experienced software engineer with 3+ years of expertise in MLOps, AI testing, and enterprise software development. Currently pursuing my Master's in Computer Science at Northeastern University (graduating December 2025), I bring a unique blend of academic knowledge and industry experience.</p>
+                        <p>Software Engineer with <strong>3+ years</strong> at IBM developing enterprise monitoring solutions. Currently completing my MS in Computer Science at Northeastern University (December 2025).</p>
                         
-                        <p>At IBM, I've contributed to cutting-edge monitoring solutions, developed sophisticated automation systems, and helped launch innovative products like IBM Instana's Business Monitoring system. My work has consistently focused on building scalable, efficient solutions that drive real business impact.</p>
+                        <p>At IBM Instana, I architected Java APIs connecting 3 BPM platforms for <strong>500+ customers</strong> and led the launch of IBM's first Business Monitoring product. Optimized ML algorithms reducing processing time by <strong>92%</strong>.</p>
                         
-                        <p>I'm passionate about leveraging technology to solve complex problems and am actively seeking full-time software engineering opportunities starting January 2026, as well as fall 2025 internship positions.</p>
+                        <p>Technical expertise includes Java, Python, React, Node.js, Kubernetes, Docker, AI/ML, and full-stack development. Recent projects feature AI-powered applications using Gemini API, educational platforms with machine learning, and fraud detection systems achieving <strong>92% accuracy</strong>.</p>
+                        
+                        <p><strong>Seeking full-time Software Engineering roles starting January 2026 and fall 2025 internships.</strong></p>
                     </div>
                     <div class="stats">
                         <div class="stat-item">
@@ -643,7 +762,7 @@
                 </div>
             </section>
 
-            <section class="section" id="experience">
+            <section class="section loading" id="experience">
                 <h2 class="section-title">Experience</h2>
                 
                 <div class="experience-item">
@@ -655,9 +774,9 @@
                         <div class="duration">Jan 2023 – Nov 2023</div>
                     </div>
                     <ul class="achievements">
-                        <li>Developed comprehensive Java instrumentation API code connecting 3 BPM platforms (Camunda, IBM BAW, Red Hat) with IBM Instana, enabling real-time visibility between IT infrastructure failures and business processes for customers</li>
-                        <li>Resolved critical integration issues between cross-functional team components through collaborative debugging and technical leadership, helping successfully launch IBM Instana's first Business Monitoring product</li>
-                        <li>Standardized development processes through implementation of streamlined testing protocols and modular design patterns, resulting in significantly accelerated development cycles and improved product quality metrics</li>
+                        <li>Architected Java instrumentation APIs integrating <strong>3 BPM platforms</strong> (Camunda, IBM BAW, Red Hat PAM) with IBM Instana, enabling real-time business process monitoring for <strong>500+ enterprise customers</strong></li>
+                        <li>Led cross-functional debugging initiatives resolving <strong>15+ critical integration issues</strong>, directly enabling successful launch of IBM Instana's first Business Monitoring product</li>
+                        <li>Implemented automated testing frameworks and modular design patterns, reducing development cycles by <strong>40%</strong> and production defects by <strong>35%</strong></li>
                     </ul>
                 </div>
 
@@ -670,35 +789,57 @@
                         <div class="duration">Jan 2021 – Dec 2022</div>
                     </div>
                     <ul class="achievements">
-                        <li>Engineered sophisticated automated metric inference system supporting both Sysdig and Instana data formats, accelerating evaluation efficiency by <strong>10x</strong> while ensuring seamless cross-platform compatibility</li>
-                        <li>Reduced complex algorithm evaluation time from <strong>2 hours to 10 minutes</strong> by designing and implementing an intelligent Event-grouping service with custom ground truth generation</li>
+                        <li>Built enterprise-grade automated metric inference system processing <strong>10M+ data points</strong> across Sysdig/Instana platforms, achieving <strong>10x performance improvement</strong> in evaluation efficiency</li>
+                        <li>Optimized anomaly detection algorithms through intelligent Event-grouping service, reducing processing time from <strong>120 minutes to 10 minutes (92% improvement)</strong></li>
+                        <li>Developed comprehensive evaluation suite identifying <strong>5 missed patterns</strong> and reducing false positives by <strong>80%</strong>, featuring interactive time-series dashboards</li>
                         <li>Led development of robust systematic fault simulation for QoTD and Sockshop microservice applications, enabling continuous integration testing within algorithm inference pipelines</li>
-                        <li>Created comprehensive end-to-end anomaly detection evaluation suite that systematically identified <strong>5 missed patterns and 20-25 false positives</strong>, featuring interactive time-series visualizations</li>
                     </ul>
                 </div>
             </section>
 
-            <section class="section" id="projects">
+            <section class="section loading" id="projects">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <h3 class="project-title">
-                            <i class="fas fa-shield-alt"></i>
-                            The ROBIN
+                            <i class="fas fa-recycle"></i>
+                            SUYT - Sustainability Platform
                         </h3>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TF-IDF</span>
-                            <span class="tech-tag">SMOTE</span>
-                            <span class="tech-tag">Ensemble Learning</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">Beautiful Soup</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">Gemini API</span>
+                            <span class="tech-tag">Geolocation APIs</span>
                         </div>
                         <p class="project-description">
-                            Developed a machine learning system to detect fraudulent job postings, achieving <strong>92% accuracy</strong> through ensemble learning approach. Created an explainable detection system that identifies linguistic patterns in fraudulent listings and provides transparent reasoning.
+                            AI-powered sustainability platform that identifies waste items through <strong>Gemini image recognition</strong> and provides personalized recycling recommendations with location-based disposal center mapping. Features social progress tracking and creative reuse suggestions.
                         </p>
                         <div class="project-links">
-                            <a href="https://github.com/samkul-swe/The-Robin" class="project-link" target="_blank">
+                            <a href="https://github.com/samkul-swe/SUYT" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">
+                            <i class="fas fa-brain"></i>
+                            MindMelt - AI Learning Platform
+                        </h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">DeepSeek-Prover-V2 API</span>
+                            <span class="tech-tag">JWT</span>
+                        </div>
+                        <p class="project-description">
+                            Educational platform that revolutionizes CS learning through <strong>AI-driven Socratic questioning</strong> using DeepSeek-Prover-V2, featuring adaptive difficulty algorithms, multi-track learning paths, and intelligent progress analytics with streak monitoring.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/samkul-swe/MindMelt" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Code
                             </a>
@@ -708,17 +849,17 @@
                     <div class="project-card">
                         <h3 class="project-title">
                             <i class="fas fa-map-marked-alt"></i>
-                            TravelPal
+                            TravelPal - Mobile Travel App
                         </h3>
                         <div class="project-tech">
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Android Studio</span>
                             <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Google Gemini API</span>
+                            <span class="tech-tag">Gemini API</span>
                             <span class="tech-tag">Google Maps SDK</span>
                         </div>
                         <p class="project-description">
-                            Engineered a feature-rich mobile application that generates personalized travel itineraries for budget-conscious students. Integrated Gemini API for natural language processing and implemented comprehensive Firebase authentication with offline capabilities.
+                            Mobile application leveraging <strong>Gemini AI for intelligent travel itinerary generation</strong> with Firebase real-time authentication, offline data synchronization, and Google Maps SDK integration for budget-conscious students.
                         </p>
                         <div class="project-links">
                             <a href="https://github.com/samkul-swe/TravelPal" class="project-link" target="_blank">
@@ -730,42 +871,22 @@
 
                     <div class="project-card">
                         <h3 class="project-title">
-                            <i class="fas fa-robot"></i>
-                            MindMelt
-                        </h3>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">OpenAI API</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <p class="project-description">
-                            <em>Recent Project</em> - Built a personalized AI learning platform that generates targeted questions for computer science students, creating an interactive study experience through reverse-engineered conversational AI.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/in/samkul-swe/MindMelt" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                                View Code
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <h3 class="project-title">
-                            <i class="fas fa-recycle"></i>
-                            SUYT - Suit Up Your Trash
+                            <i class="fas fa-shield-alt"></i>
+                            The-ROBIN - ML Fraud Detection
                         </h3>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">NLTK</span>
+                            <span class="tech-tag">SMOTE</span>
+                            <span class="tech-tag">Ensemble Methods</span>
                         </div>
                         <p class="project-description">
-                            <em>Recent Project</em> - Developed an AI-powered mobile application that identifies waste items through image recognition and provides personalized recycling recommendations to promote better environmental practices.
+                            Machine learning fraud detection system using <strong>ensemble methods</strong> (Logistic Regression, MLP, Random Forest, SVM) achieving <strong>92% accuracy on 18K+ job postings</strong> with advanced NLP preprocessing and explainable AI features.
                         </p>
                         <div class="project-links">
-                            <a href="https://github.com/in/samkul-swe/SUYT" class="project-link" target="_blank">
+                            <a href="https://github.com/samkul-swe/The-Robin" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Code
                             </a>
@@ -774,7 +895,7 @@
                 </div>
             </section>
 
-            <section class="section" id="skills">
+            <section class="section loading" id="skills">
                 <h2 class="section-title">Technical Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
@@ -783,19 +904,25 @@
                             <span class="skill-item">Java</span>
                             <span class="skill-item">Python</span>
                             <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Node.js</span>
+                            <span class="skill-item">Express.js</span>
+                            <span class="skill-item">Spring Boot</span>
                             <span class="skill-item">Flask</span>
-                            <span class="skill-item">Android Studio</span>
+                            <span class="skill-item">Android SDK</span>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3><i class="fas fa-cloud"></i> Infrastructure & DevOps</h3>
+                        <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
                         <div class="skill-list">
+                            <span class="skill-item">AWS</span>
+                            <span class="skill-item">Docker</span>
                             <span class="skill-item">Kubernetes</span>
                             <span class="skill-item">OpenShift</span>
-                            <span class="skill-item">Docker</span>
                             <span class="skill-item">CI/CD</span>
                             <span class="skill-item">Git/GitHub</span>
+                            <span class="skill-item">Jenkins</span>
                         </div>
                     </div>
 
@@ -805,47 +932,55 @@
                             <span class="skill-item">IBM Instana</span>
                             <span class="skill-item">Watson AIOps</span>
                             <span class="skill-item">Sysdig</span>
+                            <span class="skill-item">Prometheus</span>
                             <span class="skill-item">Time Series Analysis</span>
                             <span class="skill-item">Anomaly Detection</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                        <h3><i class="fas fa-brain"></i> AI/ML & APIs</h3>
                         <div class="skill-list">
+                            <span class="skill-item">Scikit-learn</span>
+                            <span class="skill-item">TensorFlow</span>
                             <span class="skill-item">Ensemble Learning</span>
-                            <span class="skill-item">Text Analysis</span>
-                            <span class="skill-item">Pattern Recognition</span>
+                            <span class="skill-item">NLP</span>
+                            <span class="skill-item">Computer Vision</span>
+                            <span class="skill-item">Gemini API</span>
+                            <span class="skill-item">DeepSeek AI</span>
                             <span class="skill-item">TF-IDF</span>
                             <span class="skill-item">SMOTE</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
-                        <h3><i class="fas fa-cogs"></i> Domain Expertise</h3>
+                        <h3><i class="fas fa-database"></i> Databases & Tools</h3>
                         <div class="skill-list">
-                            <span class="skill-item">BPM (Camunda)</span>
-                            <span class="skill-item">IBM BAW</span>
-                            <span class="skill-item">Red Hat PAM</span>
-                            <span class="skill-item">MLOps</span>
-                            <span class="skill-item">Microservices</span>
+                            <span class="skill-item">Firebase</span>
+                            <span class="skill-item">MongoDB</span>
+                            <span class="skill-item">PostgreSQL</span>
+                            <span class="skill-item">Time Series DBs</span>
+                            <span class="skill-item">JWT</span>
+                            <span class="skill-item">REST APIs</span>
+                            <span class="skill-item">Google Maps SDK</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
-                        <h3><i class="fas fa-database"></i> Tools & Platforms</h3>
+                        <h3><i class="fas fa-cogs"></i> Enterprise & BPM</h3>
                         <div class="skill-list">
-                            <span class="skill-item">Firebase</span>
-                            <span class="skill-item">Google Maps SDK</span>
-                            <span class="skill-item">Jest</span>
-                            <span class="skill-item">Enzyme</span>
-                            <span class="skill-item">Beautiful Soup</span>
+                            <span class="skill-item">Camunda</span>
+                            <span class="skill-item">IBM BAW</span>
+                            <span class="skill-item">Red Hat PAM</span>
+                            <span class="skill-item">Microservices</span>
+                            <span class="skill-item">MLOps</span>
+                            <span class="skill-item">Agile/Scrum</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="section" id="education">
+            <section class="section loading" id="education">
                 <h2 class="section-title">Education</h2>
                 
                 <div class="education-item">
@@ -875,7 +1010,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>Let's connect and build something amazing together!</p>
+                <p style="font-size: 1.2rem; font-weight: 600;">Ready to build something amazing together!</p>
                 <div class="social-links">
                     <a href="mailto:kulkarni.samp@northeastern.edu" class="social-link" title="Email">
                         <i class="fas fa-envelope"></i>
@@ -888,12 +1023,12 @@
                     </a>
                 </div>
             </div>
-            <p>&copy; 2025 Sampada Kulkarni. Available for full-time opportunities starting January 2026.</p>
+            <p>&copy; 2025 Sampada Kulkarni • Available for full-time opportunities starting January 2026</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Enhanced smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -907,41 +1042,41 @@
             });
         });
 
-        // Add scroll animations
+        // Enhanced scroll animations with stagger effect
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        entry.target.classList.add('loaded');
+                    }, index * 100);
                 }
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        // Observe all loading elements
+        document.querySelectorAll('.loading').forEach(element => {
+            observer.observe(element);
         });
 
-        // Add hover effects for skill items
+        // Enhanced skill hover effects
         document.querySelectorAll('.skill-item').forEach(skill => {
             skill.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px) scale(1.05)';
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+                this.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)';
             });
             
             skill.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
             });
         });
 
-        // Add typing effect to the hero title
+        // Enhanced typing effect
         const heroTitle = document.querySelector('.hero h1');
         const text = heroTitle.textContent;
         heroTitle.textContent = '';
@@ -951,36 +1086,51 @@
             if (i < text.length) {
                 heroTitle.textContent += text.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 120);
             }
         }
 
-        // Start typing effect after a short delay
-        setTimeout(typeWriter, 500);
+        setTimeout(typeWriter, 800);
 
         // Resume download function
         function downloadResume() {
-            // For GitHub Pages, use the full path
-            const repoName = window.location.pathname.split('/')[1]; // Gets repo name from URL
+            const repoName = window.location.pathname.split('/')[1];
             let resumePath;
             
             if (repoName && repoName !== '') {
-                // If hosted on GitHub Pages with repo name (username.github.io/repo-name)
                 resumePath = `/${repoName}/resume.pdf`;
             } else {
-                // If hosted on personal GitHub Pages (username.github.io)
                 resumePath = '/resume.pdf';
             }
             
-            // Create a link element and trigger download
             const link = document.createElement('a');
             link.href = resumePath;
             link.download = 'Sampada_Kulkarni_Resume.pdf';
-            link.target = '_blank'; // Opens in new tab as fallback
+            link.target = '_blank';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
+
+        // Add loading animation for page load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Enhanced project card interactions
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = '#ffffff';
+            });
+        });
     </script>
 </body>
 </html>
