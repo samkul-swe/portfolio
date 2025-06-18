@@ -954,9 +954,20 @@
                 setTimeout(typeWriter, 100);
             }
         }
-        
+
         // Start typing effect after a short delay
         setTimeout(typeWriter, 500);
+
+        // Resume download function
+        function downloadResume() {
+            // Create a link element and trigger download
+            const link = document.createElement('a');
+            link.href = './resume.pdf'; // Path to your resume file
+            link.download = 'Sampada_Kulkarni_Resume.pdf'; // Downloaded filename
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
 </body>
 </html>
