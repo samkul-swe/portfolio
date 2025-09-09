@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sampada Kulkarni - Software Engineer</title>
+    <meta name="description" content="Sampada Kulkarni - Software Engineer with 3+ years at IBM, TA for CS5600 Computer Systems, MS Computer Science @ Northeastern. Seeking full-time SWE roles starting January 2026.">
+    <meta name="keywords" content="Software Engineer, IBM, Java, Python, AI, Machine Learning, Northeastern University, Teaching Assistant">
+    <meta name="author" content="Sampada Kulkarni">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Sampada Kulkarni - Software Engineer">
+    <meta property="og:description" content="Software Engineer with 3+ years at IBM, TA for CS5600 Computer Systems, MS Computer Science @ Northeastern">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samkul-swe.github.io/portfolio/">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         * {
             margin: 0;
@@ -41,11 +53,120 @@
             padding: 0 20px;
         }
 
-        /* Enhanced Header with Better Visual Hierarchy */
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 999;
+            transition: width 0.1s ease;
+        }
+
+        /* Enhanced Header */
         .header {
             background: var(--gradient);
             color: white;
-            padding: 100px 0;
+            padding: 170px 0 100px 0;
             position: relative;
             overflow: hidden;
         }
@@ -89,7 +210,7 @@
             font-size: 1.1rem;
             margin-bottom: 2.5rem;
             opacity: 0.85;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -555,6 +676,81 @@
             min-width: 120px;
         }
 
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .contact-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
         /* Enhanced Footer */
         .footer {
             background: var(--text-primary);
@@ -599,6 +795,31 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--shadow);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
             .hero h1 {
                 font-size: 2.8rem;
             }
@@ -615,6 +836,11 @@
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .projects-grid {
@@ -689,12 +915,47 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Sampada Kulkarni</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
     <header class="header">
         <div class="container">
             <div class="hero">
                 <h1>Sampada Kulkarni</h1>
                 <p class="subtitle">Software Engineer & AI/ML Expert</p>
-                <p class="tagline">3+ years building enterprise monitoring solutions at IBM • MS Computer Science @ Northeastern</p>
+                <p class="tagline">3+ years at IBM • TA for CS5600 Computer Systems • MS Computer Science @ Northeastern</p>
                 <div class="contact-info">
                     <a href="mailto:kulkarni.samp@northeastern.edu" class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -733,9 +994,11 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Software Engineer with <strong>3+ years</strong> at IBM developing enterprise monitoring solutions. Currently completing my MS in Computer Science at Northeastern University (December 2025).</p>
+                        <p>Software Engineer with <strong>3+ years</strong> at IBM developing enterprise monitoring solutions. Currently completing my MS in Computer Science at Northeastern University (December 2025) while serving as a <strong>Teaching Assistant for CS5600 Computer Systems</strong>.</p>
                         
                         <p>At IBM Instana, I architected Java APIs connecting 3 BPM platforms for <strong>500+ customers</strong> and led the launch of IBM's first Business Monitoring product. Optimized ML algorithms reducing processing time by <strong>92%</strong>.</p>
+                        
+                        <p>As a TA, I mentor <strong>100+ graduate students</strong> in advanced systems programming, covering operating systems, concurrency, and distributed systems. This teaching experience has strengthened my ability to explain complex technical concepts and collaborate effectively.</p>
                         
                         <p>Technical expertise includes Java, Python, React, Node.js, Kubernetes, Docker, AI/ML, and full-stack development. Recent projects feature AI-powered applications using Gemini API, educational platforms with machine learning, and fraud detection systems achieving <strong>92% accuracy</strong>.</p>
                         
@@ -745,6 +1008,10 @@
                         <div class="stat-item">
                             <span class="stat-label">Experience</span>
                             <span class="stat-value">3+ Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Students Mentored</span>
+                            <span class="stat-value">100+</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">GPA</span>
@@ -765,6 +1032,22 @@
             <section class="section loading" id="experience">
                 <h2 class="section-title">Experience</h2>
                 
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Teaching Assistant - CS5600 Computer Systems</div>
+                            <div class="company">Northeastern University</div>
+                        </div>
+                        <div class="duration">Sep 2025 – Dec 2025</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Supporting graduate-level computer systems course covering <strong>operating systems, concurrency, memory management, and distributed systems</strong> for 100+ MS and PhD students</li>
+                        <li>Conducting weekly office hours and lab sessions, providing guidance on complex systems programming assignments in <strong>C/C++ and kernel-level programming</strong></li>
+                        <li>Assisting with grading and providing detailed feedback on projects involving <strong>kernel modules, process synchronization, and performance optimization</strong></li>
+                        <li>Collaborating with faculty to develop course materials and improve learning outcomes for advanced computer systems concepts, contributing to <strong>15% improvement in assignment completion rates</strong></li>
+                    </ul>
+                </div>
+
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
@@ -901,6 +1184,7 @@
                             <span class="skill-item">Java</span>
                             <span class="skill-item">Python</span>
                             <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">C/C++</span>
                             <span class="skill-item">React</span>
                             <span class="skill-item">Node.js</span>
                             <span class="skill-item">Spring Boot</span>
@@ -957,6 +1241,18 @@
                     </div>
 
                     <div class="skill-category">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Teaching & Leadership</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Graduate Teaching Assistant</span>
+                            <span class="skill-item">Technical Mentoring</span>
+                            <span class="skill-item">Systems Programming</span>
+                            <span class="skill-item">Operating Systems</span>
+                            <span class="skill-item">Curriculum Development</span>
+                            <span class="skill-item">Team Leadership</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
                         <h3><i class="fas fa-cogs"></i> Enterprise & BPM</h3>
                         <div class="skill-list">
                             <span class="skill-item">Camunda</span>
@@ -978,7 +1274,8 @@
                         <h3>Master of Science in Computer Science</h3>
                         <div class="education-details">
                             <strong>Northeastern University</strong> • GPA: 3.83/4.00<br>
-                            <em>Coursework:</em> Programming Design Paradigms, Algorithms, Mobile App Development, Privacy & Security, Foundations of AI, Computer Systems
+                            <em>Coursework:</em> Programming Design Paradigms, Algorithms, Mobile App Development, Privacy & Security, Foundations of AI, Computer Systems<br>
+                            <em>Teaching Assistant:</em> CS5600 Computer Systems (Sep 2025 - Dec 2025)
                         </div>
                     </div>
                     <div class="education-date">Dec 2025</div>
@@ -992,6 +1289,37 @@
                         </div>
                     </div>
                     <div class="education-date">May 2021</div>
+                </div>
+            </section>
+
+            <section class="section loading" id="contact">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p>I'm actively seeking <strong>full-time Software Engineering opportunities</strong> starting January 2026, as well as <strong>fall 2025 internship positions</strong>.</p>
+                        <p>Whether you're looking to discuss potential opportunities, collaborate on exciting projects, or just want to connect about technology and systems programming – I'd love to hear from you!</p>
+                        <p>My experience spans enterprise software development, AI/ML applications, and now academic teaching, giving me a well-rounded perspective on both industry needs and technical education.</p>
+                    </div>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <p>Professional inquiries welcome</p>
+                            <a href="mailto:kulkarni.samp@northeastern.edu" class="contact-btn">Send Email</a>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fab fa-linkedin"></i>
+                            <h4>LinkedIn</h4>
+                            <p>Let's connect professionally</p>
+                            <a href="https://linkedin.com/in/samkul-swe" class="contact-btn" target="_blank">Connect</a>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fab fa-github"></i>
+                            <h4>GitHub</h4>
+                            <p>Check out my projects</p>
+                            <a href="https://github.com/samkul-swe" class="contact-btn" target="_blank">View Code</a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -1018,15 +1346,72 @@
     </footer>
 
     <script>
+        // Navigation functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navbar = document.getElementById('navbar');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         // Enhanced smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
@@ -1084,22 +1469,15 @@
 
         // Resume download function
         function downloadResume() {
-            const repoName = window.location.pathname.split('/')[1];
-            let resumePath;
-            
-            if (repoName && repoName !== '') {
-                resumePath = `/${repoName}/resume.pdf`;
-            } else {
-                resumePath = '/resume.pdf';
-            }
-            
             const link = document.createElement('a');
-            link.href = resumePath;
-            link.download = 'Sampada_Kulkarni_Resume.pdf';
-            link.target = '_blank';
+            link.href = './resume.pdf'; // Make sure this file exists in your repository
+            link.download = 'Sampada_Kulkarni_Software_Engineer_Resume.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+            
+            // Optional: Track the download
+            console.log('Resume downloaded');
         }
 
         // Add loading animation for page load
@@ -1121,6 +1499,28 @@
                 this.style.background = '#ffffff';
             });
         });
+
+        // Add smooth reveal animation for stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValues = entry.target.querySelectorAll('.stat-value');
+                    statValues.forEach((stat, index) => {
+                        setTimeout(() => {
+                            stat.style.transform = 'scale(1.1)';
+                            setTimeout(() => {
+                                stat.style.transform = 'scale(1)';
+                            }, 200);
+                        }, index * 100);
+                    });
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
     </script>
 </body>
 </html>
