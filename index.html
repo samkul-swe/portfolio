@@ -180,7 +180,7 @@
 
         .completion-message {
             margin-top: 15px;
-            padding: 12px;
+            padding: 15px;
             background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
             border-radius: 6px;
             border: 1px solid #63b3ed;
@@ -196,6 +196,14 @@
             display: block;
         }
 
+        .completion-meme {
+            width: 200px;
+            height: auto;
+            margin: 10px auto 10px auto;
+            border-radius: 6px;
+            display: block;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -207,22 +215,7 @@
             }
         }
 
-        .knowledge-bar {
-            width: 150px;
-            height: 8px;
-            background: #334155;
-            border-radius: 4px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
 
-        .knowledge-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #63b3ed, #3b82f6);
-            transition: width 0.5s ease;
-            border-radius: 4px;
-        }
 
         .game-controls {
             text-align: center;
@@ -541,7 +534,9 @@
             
             <div class="game-container">
                 <div class="game-hud">
+                    <p>Knowledge: <span id="hits">0</span>/9</p>
                     <div class="completion-message" id="completionMessage">
+                        <img src="https://i.imgflip.com/4/4t0m5.jpg" alt="Waiting meme" class="completion-meme">
                         ✉️ Awaiting "You're hired!" email
                     </div>
                 </div>
@@ -1314,9 +1309,7 @@
                         createExplosion(target.x, target.y);
                         
                         hits++;
-                        const knowledgePercent = (hits / 9) * 100;
                         document.getElementById('hits').textContent = hits;
-                        document.getElementById('knowledgeFill').style.width = knowledgePercent + '%';
                         
                         // Show completion message when all targets are hit
                         if (hits === 9) {
@@ -1421,9 +1414,7 @@
                     target.hit = true;
                     createExplosion(target.x, target.y);
                     hits++;
-                    const knowledgePercent = (hits / 9) * 100;
                     document.getElementById('hits').textContent = hits;
-                    document.getElementById('knowledgeFill').style.width = knowledgePercent + '%';
                     
                     // Show completion message when all targets are hit
                     if (hits === 9) {
