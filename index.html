@@ -13,8 +13,8 @@
 
         body {
             font-family: 'Monaco', 'Courier New', monospace;
-            background: #0a0e27;
-            color: #e0e0e0;
+            background: #0f172a;
+            color: #e2e8f0;
             overflow-x: hidden;
         }
 
@@ -26,9 +26,9 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #1a1f3a 0%, #2d1b4e 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             padding: 80px 0 60px 0;
-            border-bottom: 2px solid #4a5568;
+            border-bottom: 1px solid #475569;
             position: relative;
         }
 
@@ -54,24 +54,7 @@
         }
 
         .contact-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            color: #63b3ed;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #4a5568;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .contact-link:hover {
-            background: #2d3748;
-            border-color: #63b3ed;
+            display: none;
         }
 
         /* Mode Toggle */
@@ -109,9 +92,9 @@
 
         /* Game Section */
         .game-section {
-            background: #1a1f3a;
+            background: #1e293b;
             padding: 60px 0;
-            border-bottom: 2px solid #4a5568;
+            border-bottom: 1px solid #475569;
         }
 
         .game-intro {
@@ -142,8 +125,8 @@
 
         #gameCanvas {
             display: block;
-            background: #0a0e27;
-            border: 2px solid #4a5568;
+            background: #0f172a;
+            border: 1px solid #475569;
             border-radius: 8px;
         }
 
@@ -151,10 +134,10 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(10, 14, 39, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #4a5568;
+            border: 1px solid #475569;
             font-size: 12px;
         }
 
@@ -207,15 +190,15 @@
         }
 
         .card {
-            background: #1a1f3a;
-            border: 1px solid #4a5568;
+            background: #1e293b;
+            border: 1px solid #475569;
             border-radius: 8px;
             padding: 30px;
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            border-color: #63b3ed;
+            border-color: #64748b;
             transform: translateY(-5px);
         }
 
@@ -234,12 +217,12 @@
         }
 
         .card-category {
-            background: #2d3748;
-            color: #63b3ed;
+            background: #334155;
+            color: #94a3b8;
             padding: 4px 12px;
             border-radius: 4px;
             font-size: 11px;
-            border: 1px solid #4a5568;
+            border: 1px solid #475569;
         }
 
         .card-description {
@@ -322,8 +305,8 @@
         }
 
         .modal-content {
-            background: #1a1f3a;
-            border: 2px solid #4a5568;
+            background: #1e293b;
+            border: 1px solid #475569;
             border-radius: 8px;
             padding: 40px;
             max-width: 700px;
@@ -373,10 +356,10 @@
 
         /* Footer */
         .footer {
-            background: #1a1f3a;
+            background: #1e293b;
             padding: 40px 0;
             text-align: center;
-            border-top: 2px solid #4a5568;
+            border-top: 1px solid #475569;
         }
 
         .footer p {
@@ -441,22 +424,23 @@
             <div class="game-intro">
                 <h2>Interactive Portfolio</h2>
                 <p>
-                    Inspired by classic artillery games like Pocket Tanks, this interactive experience lets you explore 
-                    my work by hitting targets. Each target represents a project or experience from my career.
+                    A creative approach to showcasing work. I believe software should be engaging and interactive, 
+                    not just functional. Each target reveals a project or experience from my career.
                 </p>
                 <p>
-                    Why a game? Because building software should be engaging and fun. This demonstrates my approach to 
-                    problem-solving: creative, interactive, and user-focused.
+                    Hit targets to learn more about what I've built and where I've worked.
                 </p>
-                <p style="color: #63b3ed; font-weight: 600;">
+                <p style="color: #94a3b8; font-weight: 600;">
                     Prefer a traditional view? Click "List View" in the top-right corner.
                 </p>
             </div>
             
             <div class="game-container">
                 <div class="game-hud">
-                    <p>Score: <span id="score">0</span></p>
-                    <p>Targets: <span id="hits">0</span>/10</p>
+                    <p>Knowledge: <span id="hits">0</span>/9</p>
+                    <div class="knowledge-bar">
+                        <div class="knowledge-fill" id="knowledgeFill"></div>
+                    </div>
                 </div>
                 <canvas id="gameCanvas"></canvas>
             </div>
@@ -789,7 +773,7 @@
 
         let score = 0;
         let hits = 0;
-        let angle = -45;
+        let angle = -90;
         let targets = [];
         let projectiles = [];
         let particles = [];
@@ -904,28 +888,16 @@
                     'Contributed to 15% improvement in completion rates'
                 ],
                 link: 'https://northeastern.edu'
-            },
-            'Article': {
-                title: 'Technical Article - IBM Cloud',
-                description: 'Published on Medium: Deep dive into Watson AIOps event correlation algorithms and how they reduce alert fatigue for operations teams.',
-                tech: ['Technical Writing', 'AIOps', 'Event Correlation', 'IBM Cloud'],
-                highlights: [
-                    'Explains intelligent event grouping algorithms',
-                    'Reduces alert fatigue for operations teams',
-                    'Architecture and implementation details',
-                    'Real-world use cases and benefits'
-                ],
-                link: 'https://medium.com/ibm-cloud/grouping-events-to-make-sense-of-it-noise-using-ibm-cloud-pak-for-watson-aiops-5a28905d5216'
             }
         };
 
         class Target {
-            constructor(x, y, label, color) {
+            constructor(x, y, label, icon) {
                 this.x = x;
                 this.y = y;
-                this.radius = 25;
+                this.radius = 35;
                 this.label = label;
-                this.color = color;
+                this.icon = icon;
                 this.hit = false;
                 this.wobble = 0;
             }
@@ -936,24 +908,134 @@
                 this.wobble += 0.03;
                 const wobbleOffset = Math.sin(this.wobble) * 1;
 
+                // Simple circle
                 ctx.beginPath();
                 ctx.arc(this.x, this.y + wobbleOffset, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
+                ctx.fillStyle = '#334155';
                 ctx.fill();
-                ctx.strokeStyle = '#4a5568';
+                ctx.strokeStyle = '#475569';
                 ctx.lineWidth = 2;
                 ctx.stroke();
 
-                ctx.beginPath();
-                ctx.arc(this.x, this.y + wobbleOffset, this.radius * 0.5, 0, Math.PI * 2);
-                ctx.strokeStyle = 'rgba(74, 85, 104, 0.5)';
-                ctx.lineWidth = 1;
-                ctx.stroke();
+                // SVG-style icon using shapes
+                ctx.save();
+                ctx.translate(this.x, this.y + wobbleOffset);
+                this.drawIcon();
+                ctx.restore();
+            }
 
-                ctx.fillStyle = '#e0e0e0';
-                ctx.font = '10px Monaco';
-                ctx.textAlign = 'center';
-                ctx.fillText(this.label, this.x, this.y + this.radius + 12);
+            drawIcon() {
+                ctx.strokeStyle = '#94a3b8';
+                ctx.fillStyle = '#94a3b8';
+                ctx.lineWidth = 2;
+
+                switch(this.label) {
+                    case 'AI Demo':
+                        // Rocket
+                        ctx.beginPath();
+                        ctx.moveTo(0, -12);
+                        ctx.lineTo(8, 12);
+                        ctx.lineTo(0, 8);
+                        ctx.lineTo(-8, 12);
+                        ctx.closePath();
+                        ctx.fill();
+                        break;
+                    case 'SurfSense':
+                        // Wave
+                        ctx.beginPath();
+                        ctx.moveTo(-10, 0);
+                        ctx.quadraticCurveTo(-5, -8, 0, 0);
+                        ctx.quadraticCurveTo(5, 8, 10, 0);
+                        ctx.stroke();
+                        break;
+                    case 'MindMelt':
+                        // Brain/circle with nodes
+                        ctx.beginPath();
+                        ctx.arc(0, 0, 8, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(-5, -5, 2, 0, Math.PI * 2);
+                        ctx.arc(5, -5, 2, 0, Math.PI * 2);
+                        ctx.arc(0, 5, 2, 0, Math.PI * 2);
+                        ctx.fill();
+                        break;
+                    case 'TravelPal':
+                        // Airplane
+                        ctx.beginPath();
+                        ctx.moveTo(0, -8);
+                        ctx.lineTo(-10, 0);
+                        ctx.lineTo(-3, 2);
+                        ctx.lineTo(-5, 8);
+                        ctx.lineTo(-2, 8);
+                        ctx.lineTo(0, 2);
+                        ctx.lineTo(2, 8);
+                        ctx.lineTo(5, 8);
+                        ctx.lineTo(3, 2);
+                        ctx.lineTo(10, 0);
+                        ctx.closePath();
+                        ctx.fill();
+                        break;
+                    case 'The-ROBIN':
+                        // Shield
+                        ctx.beginPath();
+                        ctx.moveTo(0, -10);
+                        ctx.lineTo(8, -6);
+                        ctx.lineTo(8, 4);
+                        ctx.lineTo(0, 10);
+                        ctx.lineTo(-8, 4);
+                        ctx.lineTo(-8, -6);
+                        ctx.closePath();
+                        ctx.stroke();
+                        break;
+                    case 'SUYT':
+                        // Recycle arrows
+                        ctx.beginPath();
+                        ctx.arc(0, 0, 8, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(0, -8);
+                        ctx.lineTo(3, -5);
+                        ctx.moveTo(0, 8);
+                        ctx.lineTo(-3, 5);
+                        ctx.stroke();
+                        break;
+                    case 'IBM Instana':
+                        // Briefcase
+                        ctx.beginPath();
+                        ctx.rect(-8, -4, 16, 10);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(-4, -4);
+                        ctx.lineTo(-4, -7);
+                        ctx.lineTo(4, -7);
+                        ctx.lineTo(4, -4);
+                        ctx.stroke();
+                        break;
+                    case 'IBM Dev':
+                        // Code brackets
+                        ctx.beginPath();
+                        ctx.moveTo(-6, -8);
+                        ctx.lineTo(-10, 0);
+                        ctx.lineTo(-6, 8);
+                        ctx.moveTo(6, -8);
+                        ctx.lineTo(10, 0);
+                        ctx.lineTo(6, 8);
+                        ctx.stroke();
+                        break;
+                    case 'TA NEU':
+                        // Graduation cap
+                        ctx.beginPath();
+                        ctx.moveTo(-10, -2);
+                        ctx.lineTo(0, -8);
+                        ctx.lineTo(10, -2);
+                        ctx.lineTo(0, 2);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.rect(-6, 2, 12, 4);
+                        ctx.fill();
+                        break;
+                }
             }
 
             isClicked(mouseX, mouseY) {
@@ -1026,8 +1108,7 @@
         }
 
         function initTargets() {
-            const colors = ['#e53e3e', '#38b2ac', '#3182ce', '#d69e2e', '#805ad5', '#667eea', '#ed64a6', '#ed8936', '#48bb78', '#f56565'];
-            const labels = ['AI Demo', 'SurfSense', 'MindMelt', 'TravelPal', 'The-ROBIN', 'SUYT', 'IBM Instana', 'IBM Dev', 'TA NEU', 'Article'];
+            const labels = ['AI Demo', 'SurfSense', 'MindMelt', 'TravelPal', 'The-ROBIN', 'SUYT', 'IBM Instana', 'IBM Dev', 'TA NEU'];
             
             const rows = 2;
             const cols = 5;
@@ -1037,9 +1118,10 @@
             let idx = 0;
             for (let row = 0; row < rows; row++) {
                 for (let col = 0; col < cols; col++) {
+                    if (idx >= labels.length) break;
                     const x = spacing * (col + 1) + 30;
                     const y = rowSpacing * (row + 1) + 80;
-                    targets.push(new Target(x, y, labels[idx], colors[idx]));
+                    targets.push(new Target(x, y, labels[idx]));
                     idx++;
                 }
             }
@@ -1080,9 +1162,9 @@
             projectiles.push(new Projectile(cannonX, cannonY, vx, vy));
         }
 
-        function createExplosion(x, y, color) {
+        function createExplosion(x, y) {
             for (let i = 0; i < 20; i++) {
-                particles.push(new Particle(x, y, color));
+                particles.push(new Particle(x, y, '#64748b'));
             }
         }
 
@@ -1095,12 +1177,12 @@
                     if (dist < target.radius + proj.radius) {
                         target.hit = true;
                         projectiles.splice(pIdx, 1);
-                        createExplosion(target.x, target.y, target.color);
+                        createExplosion(target.x, target.y);
                         
-                        score += 100;
                         hits++;
-                        document.getElementById('score').textContent = score;
+                        const knowledgePercent = (hits / 9) * 100;
                         document.getElementById('hits').textContent = hits;
+                        document.getElementById('knowledgeFill').style.width = knowledgePercent + '%';
                         
                         showModal(target.label);
                     }
@@ -1141,7 +1223,7 @@
         }
 
         function gameLoop() {
-            ctx.fillStyle = '#0a0e27';
+            ctx.fillStyle = '#0f172a';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             targets.forEach(target => target.draw());
@@ -1181,7 +1263,7 @@
         // Controls
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
-                angle = Math.max(-90, angle - 5);
+                angle = Math.max(-180, angle - 5);
             } else if (e.key === 'ArrowRight') {
                 angle = Math.min(0, angle + 5);
             } else if (e.key === ' ') {
@@ -1200,11 +1282,11 @@
             targets.forEach(target => {
                 if (target.isClicked(mouseX, mouseY) && !target.hit) {
                     target.hit = true;
-                    createExplosion(target.x, target.y, target.color);
-                    score += 100;
+                    createExplosion(target.x, target.y);
                     hits++;
-                    document.getElementById('score').textContent = score;
+                    const knowledgePercent = (hits / 9) * 100;
                     document.getElementById('hits').textContent = hits;
+                    document.getElementById('knowledgeFill').style.width = knowledgePercent + '%';
                     showModal(target.label);
                 }
             });
