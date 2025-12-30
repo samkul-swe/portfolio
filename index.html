@@ -163,7 +163,8 @@
         .game-hud {
             position: absolute;
             top: 20px;
-            left: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background: rgba(15, 23, 42, 0.95);
             padding: 20px;
             border-radius: 8px;
@@ -487,6 +488,12 @@
                         <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
                     </svg>
                     GitHub
+                </a>
+                <a href="https://medium.com/@sampadakulkarni" class="contact-link" target="_blank">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.538v13.498c-.034.204.048.411.213.537l1.871 1.837v.403h-9.412v-.403l1.939-1.882c.19-.19.19-.246.19-.537v-10.91l-5.389 13.688h-.728l-6.275-13.688v9.174c-.052.385.076.774.347 1.052l2.521 3.058v.404h-7.148v-.404l2.521-3.058c.27-.279.39-.67.325-1.052v-10.608z"></path>
+                    </svg>
+                    Medium
                 </a>
             </div>
         </div>
@@ -1173,20 +1180,25 @@
         function initTargets() {
             const labels = ['AI Demo', 'SurfSense', 'MindMelt', 'TravelPal', 'The-ROBIN', 'SUYT', 'IBM Instana', 'IBM Dev', 'TA NEU'];
             
-            const rows = 2;
-            const cols = 5;
-            const spacing = (canvas.width - 60) / (cols + 1);
-            const rowSpacing = (canvas.height - 150) / (rows + 1);
-
-            let idx = 0;
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    if (idx >= labels.length) break;
-                    const x = spacing * (col + 1) + 30;
-                    const y = rowSpacing * (row + 1) + 80;
-                    targets.push(new Target(x, y, labels[idx]));
-                    idx++;
-                }
+            const row1 = 5; // First row has 5 items
+            const row2 = 4; // Second row has 4 items
+            const rowSpacing = (canvas.height - 150) / 3;
+            
+            // First row - 5 items
+            const spacing1 = (canvas.width - 60) / (row1 + 1);
+            for (let i = 0; i < row1; i++) {
+                const x = spacing1 * (i + 1) + 30;
+                const y = rowSpacing + 80;
+                targets.push(new Target(x, y, labels[i]));
+            }
+            
+            // Second row - 4 items (centered)
+            const spacing2 = (canvas.width - 60) / (row2 + 1);
+            const offset = spacing2 / 2; // Center offset for 4 items
+            for (let i = 0; i < row2; i++) {
+                const x = spacing2 * (i + 1) + 30 + offset;
+                const y = rowSpacing * 2 + 80;
+                targets.push(new Target(x, y, labels[row1 + i]));
             }
         }
 
@@ -1274,6 +1286,7 @@
             
             content += '<div class="modal-links">';
             content += `<a href="${data.link}" target="_blank" class="card-link">View More</a>`;
+            content += `<a href="mailto:kulkarni.samp@northeastern.edu" class="card-link">Contact</a>`;
             content += '</div>';
             
             document.getElementById('modalContent').innerHTML = content;
