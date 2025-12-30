@@ -13,8 +13,8 @@
 
         body {
             font-family: 'Monaco', 'Courier New', monospace;
-            background: #0f172a;
-            color: #e2e8f0;
+            background: #0a0f1e;
+            color: #f0f4f8;
             overflow-x: hidden;
         }
 
@@ -26,34 +26,35 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            background: linear-gradient(135deg, #1a2332 0%, #2d3b4e 100%);
             padding: 80px 0 60px 0;
-            border-bottom: 1px solid #475569;
+            border-bottom: 2px solid #3b4f6b;
             position: relative;
         }
 
         .header h1 {
             font-size: 48px;
             font-weight: 700;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 12px;
             letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header .subtitle {
             font-size: 20px;
-            color: #a0aec0;
+            color: #c5d4e8;
             margin-bottom: 20px;
         }
 
         .header .tagline {
             font-size: 14px;
-            color: #718096;
+            color: #9aa8bd;
             margin-bottom: 30px;
             line-height: 1.6;
         }
 
-        /* Contact Links - Now visible */
+        /* Contact Links */
         .contact-links {
             display: flex;
             gap: 15px;
@@ -65,20 +66,21 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #2d3748;
-            color: #e2e8f0;
+            background: #2d3b4e;
+            color: #f0f4f8;
             text-decoration: none;
             padding: 12px 20px;
             border-radius: 6px;
-            border: 1px solid #4a5568;
+            border: 2px solid #3b4f6b;
             font-size: 13px;
             transition: all 0.3s ease;
         }
 
         .contact-link:hover {
-            background: #4a5568;
-            border-color: #63b3ed;
+            background: #3b4f6b;
+            border-color: #5a9ff5;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 159, 245, 0.3);
         }
 
         .contact-link svg {
@@ -97,33 +99,34 @@
         }
 
         .mode-btn {
-            background: #2d3748;
-            color: #e0e0e0;
-            border: 1px solid #4a5568;
+            background: #2d3b4e;
+            color: #f0f4f8;
+            border: 2px solid #3b4f6b;
             padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
             font-family: 'Monaco', monospace;
             font-size: 12px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .mode-btn:hover {
-            background: #4a5568;
-            border-color: #63b3ed;
+            background: #3b4f6b;
+            border-color: #5a9ff5;
         }
 
         .mode-btn.active {
-            background: #63b3ed;
-            color: #0a0e27;
-            border-color: #63b3ed;
+            background: #5a9ff5;
+            color: #0a0f1e;
+            border-color: #5a9ff5;
         }
 
         /* Game Section */
         .game-section {
-            background: #1e293b;
+            background: #131b2b;
             padding: 60px 0;
-            border-bottom: 1px solid #475569;
+            border-bottom: 2px solid #3b4f6b;
         }
 
         .game-intro {
@@ -134,13 +137,13 @@
 
         .game-intro h2 {
             font-size: 28px;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 20px;
         }
 
         .game-intro p {
             font-size: 14px;
-            color: #a0aec0;
+            color: #c5d4e8;
             line-height: 1.8;
             margin-bottom: 15px;
         }
@@ -154,10 +157,10 @@
 
         #gameCanvas {
             display: block;
-            background: #0f172a;
-            border: 1px solid #475569;
+            background: #0a0f1e;
+            border: 2px solid #3b4f6b;
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .game-hud {
@@ -165,26 +168,28 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(29, 41, 61, 0.98);
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #475569;
+            border: 2px solid #5a9ff5;
             font-size: 12px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(90, 159, 245, 0.2);
         }
 
         .game-hud p {
             margin: 8px 0;
-            color: #a0aec0;
+            color: #f0f4f8;
+            font-weight: 600;
         }
 
         .completion-message {
             margin-top: 15px;
             padding: 15px;
-            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #2d3b4e 0%, #1d293d 100%);
             border-radius: 6px;
-            border: 1px solid #63b3ed;
-            color: #63b3ed;
+            border: 2px solid #5a9ff5;
+            color: #5a9ff5;
             font-size: 13px;
             font-weight: 600;
             text-align: center;
@@ -202,6 +207,7 @@
             margin: 10px auto 10px auto;
             border-radius: 6px;
             display: block;
+            border: 2px solid #3b4f6b;
         }
 
         @keyframes fadeIn {
@@ -215,17 +221,16 @@
             }
         }
 
-
-
         .game-controls {
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            background: rgba(45, 55, 72, 0.5);
+            background: rgba(45, 59, 78, 0.7);
             border-radius: 8px;
-            border: 1px solid #4a5568;
+            border: 2px solid #3b4f6b;
             font-size: 12px;
-            color: #a0aec0;
+            color: #c5d4e8;
+            font-weight: 600;
         }
 
         /* List View Section */
@@ -244,13 +249,13 @@
 
         .section-header h2 {
             font-size: 32px;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
         .section-header p {
             font-size: 14px;
-            color: #a0aec0;
+            color: #c5d4e8;
         }
 
         .grid {
@@ -261,17 +266,17 @@
         }
 
         .card {
-            background: #1e293b;
-            border: 1px solid #475569;
+            background: #1a2332;
+            border: 2px solid #3b4f6b;
             border-radius: 8px;
             padding: 30px;
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            border-color: #64748b;
+            border-color: #5a9ff5;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(90, 159, 245, 0.2);
         }
 
         .card-header {
@@ -283,23 +288,24 @@
 
         .card-title {
             font-size: 20px;
-            color: #fff;
+            color: #ffffff;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .card-category {
-            background: #334155;
-            color: #94a3b8;
+            background: #2d3b4e;
+            color: #c5d4e8;
             padding: 6px 14px;
             border-radius: 6px;
             font-size: 11px;
-            border: 1px solid #475569;
+            border: 2px solid #3b4f6b;
+            font-weight: 600;
         }
 
         .card-description {
             font-size: 13px;
-            color: #a0aec0;
+            color: #c5d4e8;
             line-height: 1.7;
             margin-bottom: 20px;
         }
@@ -312,12 +318,13 @@
         }
 
         .tech-tag {
-            background: #2d3748;
-            color: #cbd5e0;
+            background: #2d3b4e;
+            color: #f0f4f8;
             padding: 6px 12px;
             border-radius: 6px;
             font-size: 11px;
-            border: 1px solid #4a5568;
+            border: 1px solid #3b4f6b;
+            font-weight: 600;
         }
 
         .highlights {
@@ -330,7 +337,7 @@
             padding-left: 20px;
             margin-bottom: 10px;
             font-size: 12px;
-            color: #a0aec0;
+            color: #c5d4e8;
             line-height: 1.6;
         }
 
@@ -338,24 +345,27 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: #63b3ed;
+            color: #5a9ff5;
+            font-weight: bold;
         }
 
         .card-link {
             display: inline-block;
-            color: #63b3ed;
+            color: #5a9ff5;
             text-decoration: none;
             font-size: 12px;
             padding: 10px 18px;
-            border: 1px solid #4a5568;
+            border: 2px solid #3b4f6b;
             border-radius: 6px;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
 
         .card-link:hover {
-            background: #2d3748;
-            border-color: #63b3ed;
+            background: #2d3b4e;
+            border-color: #5a9ff5;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 159, 245, 0.3);
         }
 
         /* Modal */
@@ -366,7 +376,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -378,8 +388,8 @@
         }
 
         .modal-content {
-            background: #1e293b;
-            border: 1px solid #475569;
+            background: #1a2332;
+            border: 2px solid #3b4f6b;
             border-radius: 8px;
             padding: 40px;
             max-width: 700px;
@@ -390,13 +400,13 @@
 
         .modal-title {
             font-size: 24px;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 20px;
         }
 
         .modal-description {
             font-size: 14px;
-            color: #a0aec0;
+            color: #c5d4e8;
             line-height: 1.7;
             margin-bottom: 20px;
         }
@@ -406,19 +416,20 @@
             top: 20px;
             right: 20px;
             background: transparent;
-            border: 1px solid #4a5568;
-            color: #e0e0e0;
+            border: 2px solid #3b4f6b;
+            color: #f0f4f8;
             padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
             font-family: 'Monaco', monospace;
             font-size: 12px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .close-btn:hover {
-            background: #2d3748;
-            border-color: #63b3ed;
+            background: #2d3b4e;
+            border-color: #5a9ff5;
         }
 
         .modal-links {
@@ -429,14 +440,14 @@
 
         /* Footer */
         .footer {
-            background: #1e293b;
+            background: #131b2b;
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid #475569;
+            border-top: 2px solid #3b4f6b;
         }
 
         .footer p {
-            color: #718096;
+            color: #9aa8bd;
             font-size: 12px;
         }
 
@@ -527,7 +538,7 @@
                 <p>
                     Hit targets to learn more about what I've built and where I've worked.
                 </p>
-                <p style="color: #94a3b8; font-weight: 600;">
+                <p style="color: #c5d4e8; font-weight: 600;">
                     Prefer a traditional view? Click "List View" in the top-right corner.
                 </p>
             </div>
@@ -732,7 +743,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">Software Engineer</h3>
-                            <p style="color: #63b3ed; font-size: 14px; margin-top: 4px;">IBM Instana</p>
+                            <p style="color: #5a9ff5; font-size: 14px; margin-top: 4px;">IBM Instana</p>
                         </div>
                         <span class="card-category">2023</span>
                     </div>
@@ -763,7 +774,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">Software Developer</h3>
-                            <p style="color: #63b3ed; font-size: 14px; margin-top: 4px;">IBM</p>
+                            <p style="color: #5a9ff5; font-size: 14px; margin-top: 4px;">IBM</p>
                         </div>
                         <span class="card-category">2021-22</span>
                     </div>
@@ -793,7 +804,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">Teaching Assistant</h3>
-                            <p style="color: #63b3ed; font-size: 14px; margin-top: 4px;">Northeastern University</p>
+                            <p style="color: #5a9ff5; font-size: 14px; margin-top: 4px;">Northeastern University</p>
                         </div>
                         <span class="card-category">2025</span>
                     </div>
@@ -820,7 +831,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">Technical Article</h3>
-                            <p style="color: #63b3ed; font-size: 14px; margin-top: 4px;">IBM Cloud - Medium</p>
+                            <p style="color: #5a9ff5; font-size: 14px; margin-top: 4px;">IBM Cloud - Medium</p>
                         </div>
                         <span class="card-category">Writing</span>
                     </div>
@@ -1008,9 +1019,9 @@
 
                 ctx.beginPath();
                 ctx.arc(this.x, this.y + wobbleOffset, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#334155';
+                ctx.fillStyle = '#2d3b4e';
                 ctx.fill();
-                ctx.strokeStyle = '#475569';
+                ctx.strokeStyle = '#5a9ff5';
                 ctx.lineWidth = 2;
                 ctx.stroke();
 
@@ -1021,8 +1032,8 @@
             }
 
             drawIcon() {
-                ctx.strokeStyle = '#94a3b8';
-                ctx.fillStyle = '#94a3b8';
+                ctx.strokeStyle = '#c5d4e8';
+                ctx.fillStyle = '#c5d4e8';
                 ctx.lineWidth = 2;
 
                 switch(this.label) {
@@ -1153,13 +1164,13 @@
                 this.trail.forEach((pos, i) => {
                     ctx.beginPath();
                     ctx.arc(pos.x, pos.y, this.radius * (i / this.trail.length), 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(99, 179, 237, ${i / this.trail.length})`;
+                    ctx.fillStyle = `rgba(90, 159, 245, ${i / this.trail.length})`;
                     ctx.fill();
                 });
 
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#63b3ed';
+                ctx.fillStyle = '#5a9ff5';
                 ctx.fill();
             }
 
@@ -1197,11 +1208,10 @@
         function initTargets() {
             const labels = ['AI Demo', 'SurfSense', 'MindMelt', 'TravelPal', 'The-ROBIN', 'SUYT', 'IBM Instana', 'IBM Dev', 'TA NEU'];
             
-            const row1 = 5; // First row has 5 items
-            const row2 = 4; // Second row has 4 items
+            const row1 = 5;
+            const row2 = 4;
             const rowSpacing = (canvas.height - 150) / 3;
             
-            // First row - 5 items
             const spacing1 = (canvas.width - 60) / (row1 + 1);
             for (let i = 0; i < row1; i++) {
                 const x = spacing1 * (i + 1) + 30;
@@ -1209,9 +1219,8 @@
                 targets.push(new Target(x, y, labels[i]));
             }
             
-            // Second row - 4 items (positioned between first row targets)
             for (let i = 0; i < row2; i++) {
-                const x = spacing1 * (i + 1.5) + 30; // Position between targets
+                const x = spacing1 * (i + 1.5) + 30;
                 const y = rowSpacing * 2 + 80;
                 targets.push(new Target(x, y, labels[row1 + i]));
             }
@@ -1222,60 +1231,51 @@
             const cannonY = canvas.height - 35;
             const cannonLength = 45;
 
-            // Draw base platform
-            ctx.fillStyle = '#1e293b';
+            ctx.fillStyle = '#1a2332';
             ctx.fillRect(cannonX - 45, cannonY + 20, 90, 15);
-            ctx.strokeStyle = '#475569';
+            ctx.strokeStyle = '#3b4f6b';
             ctx.lineWidth = 2;
             ctx.strokeRect(cannonX - 45, cannonY + 20, 90, 15);
 
-            // Draw turret base (larger circle)
             ctx.beginPath();
             ctx.arc(cannonX, cannonY, 22, 0, Math.PI * 2);
-            ctx.fillStyle = '#334155';
+            ctx.fillStyle = '#2d3b4e';
             ctx.fill();
-            ctx.strokeStyle = '#475569';
+            ctx.strokeStyle = '#3b4f6b';
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            // Draw rotating barrel
             ctx.save();
             ctx.translate(cannonX, cannonY);
             ctx.rotate((angle * Math.PI) / 180);
 
-            // Barrel shadow/outline
-            ctx.fillStyle = '#1e293b';
+            ctx.fillStyle = '#1a2332';
             ctx.fillRect(-2, -10, cannonLength + 4, 20);
             
-            // Main barrel with gradient effect
             const gradient = ctx.createLinearGradient(0, -8, 0, 8);
-            gradient.addColorStop(0, '#4a90e2');
-            gradient.addColorStop(0.5, '#63b3ed');
-            gradient.addColorStop(1, '#4a90e2');
+            gradient.addColorStop(0, '#4a8fd9');
+            gradient.addColorStop(0.5, '#5a9ff5');
+            gradient.addColorStop(1, '#4a8fd9');
             ctx.fillStyle = gradient;
             ctx.fillRect(0, -8, cannonLength, 16);
             
-            // Barrel outline
-            ctx.strokeStyle = '#2563eb';
+            ctx.strokeStyle = '#3b7dd6';
             ctx.lineWidth = 2;
             ctx.strokeRect(0, -8, cannonLength, 16);
             
-            // Barrel tip highlight
-            ctx.fillStyle = '#93c5fd';
+            ctx.fillStyle = '#a8d0ff';
             ctx.fillRect(cannonLength - 5, -6, 5, 12);
             
             ctx.restore();
 
-            // Draw center hub
             ctx.beginPath();
             ctx.arc(cannonX, cannonY, 12, 0, Math.PI * 2);
-            ctx.fillStyle = '#475569';
+            ctx.fillStyle = '#3b4f6b';
             ctx.fill();
             
-            // Center detail
             ctx.beginPath();
             ctx.arc(cannonX, cannonY, 6, 0, Math.PI * 2);
-            ctx.fillStyle = '#63b3ed';
+            ctx.fillStyle = '#5a9ff5';
             ctx.fill();
         }
 
@@ -1293,7 +1293,7 @@
 
         function createExplosion(x, y) {
             for (let i = 0; i < 20; i++) {
-                particles.push(new Particle(x, y, '#64748b'));
+                particles.push(new Particle(x, y, '#5a9ff5'));
             }
         }
 
@@ -1311,7 +1311,6 @@
                         hits++;
                         document.getElementById('hits').textContent = hits;
                         
-                        // Show completion message when all targets are hit
                         if (hits === 9) {
                             document.getElementById('completionMessage').classList.add('show');
                         }
@@ -1354,7 +1353,7 @@
         }
 
         function gameLoop() {
-            ctx.fillStyle = '#0f172a';
+            ctx.fillStyle = '#0a0f1e';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             targets.forEach(target => target.draw());
@@ -1416,7 +1415,6 @@
                     hits++;
                     document.getElementById('hits').textContent = hits;
                     
-                    // Show completion message when all targets are hit
                     if (hits === 9) {
                         document.getElementById('completionMessage').classList.add('show');
                     }
