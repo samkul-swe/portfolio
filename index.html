@@ -1218,11 +1218,9 @@
                 targets.push(new Target(x, y, labels[i]));
             }
             
-            // Second row - 4 items (centered)
-            const spacing2 = (canvas.width - 60) / (row2 + 1);
-            const offset = spacing2 / 2; // Center offset for 4 items
+            // Second row - 4 items (positioned between first row targets)
             for (let i = 0; i < row2; i++) {
-                const x = spacing2 * (i + 1) + 30 + offset;
+                const x = spacing1 * (i + 1.5) + 30; // Position between targets
                 const y = rowSpacing * 2 + 80;
                 targets.push(new Target(x, y, labels[row1 + i]));
             }
@@ -1230,30 +1228,69 @@
 
         function drawCannon() {
             const cannonX = canvas.width / 2;
-            const cannonY = canvas.height - 25;
-            const cannonLength = 35;
+            const cannonY = canvas.height - 35;
+            const cannonLength = 45;
 
+            // Draw base platform
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(cannonX - 45, cannonY + 20, 90, 15);
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(cannonX - 45, cannonY + 20, 90, 15);
+
+            // Draw turret base (larger circle)
+            ctx.beginPath();
+            ctx.arc(cannonX, cannonY, 22, 0, Math.PI * 2);
+            ctx.fillStyle = '#334155';
+            ctx.fill();
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw rotating barrel
             ctx.save();
             ctx.translate(cannonX, cannonY);
             ctx.rotate((angle * Math.PI) / 180);
 
-            ctx.fillStyle = '#4a5568';
-            ctx.fillRect(-12, -8, 24, 16);
+            // Barrel shadow/outline
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(-2, -10, cannonLength + 4, 20);
             
-            ctx.fillStyle = '#63b3ed';
-            ctx.fillRect(0, -6, cannonLength, 12);
+            // Main barrel with gradient effect
+            const gradient = ctx.createLinearGradient(0, -8, 0, 8);
+            gradient.addColorStop(0, '#4a90e2');
+            gradient.addColorStop(0.5, '#63b3ed');
+            gradient.addColorStop(1, '#4a90e2');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, -8, cannonLength, 16);
+            
+            // Barrel outline
+            ctx.strokeStyle = '#2563eb';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(0, -8, cannonLength, 16);
+            
+            // Barrel tip highlight
+            ctx.fillStyle = '#93c5fd';
+            ctx.fillRect(cannonLength - 5, -6, 5, 12);
             
             ctx.restore();
 
+            // Draw center hub
             ctx.beginPath();
-            ctx.arc(cannonX, cannonY, 15, 0, Math.PI * 2);
-            ctx.fillStyle = '#2d3748';
+            ctx.arc(cannonX, cannonY, 12, 0, Math.PI * 2);
+            ctx.fillStyle = '#475569';
+            ctx.fill();
+            
+            // Center detail
+            ctx.beginPath();
+            ctx.arc(cannonX, cannonY, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#63b3ed';
             ctx.fill();
         }
 
         function shoot() {
             const cannonX = canvas.width / 2;
-            const cannonY = canvas.height - 25;
+            const cannonY = canvas.height - 35;
             const speed = 12;
             const radians = (angle * Math.PI) / 180;
             
