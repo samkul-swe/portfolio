@@ -178,6 +178,35 @@
             color: #a0aec0;
         }
 
+        .completion-message {
+            margin-top: 15px;
+            padding: 12px;
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            border-radius: 6px;
+            border: 1px solid #63b3ed;
+            color: #63b3ed;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .completion-message.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .knowledge-bar {
             width: 150px;
             height: 8px;
@@ -521,6 +550,9 @@
                     <p>Knowledge: <span id="hits">0</span>/9</p>
                     <div class="knowledge-bar">
                         <div class="knowledge-fill" id="knowledgeFill"></div>
+                    </div>
+                    <div class="completion-message" id="completionMessage">
+                        ✉️ Awaiting "You're hired!" email
                     </div>
                 </div>
                 <canvas id="gameCanvas"></canvas>
@@ -1259,6 +1291,11 @@
                         document.getElementById('hits').textContent = hits;
                         document.getElementById('knowledgeFill').style.width = knowledgePercent + '%';
                         
+                        // Show completion message when all targets are hit
+                        if (hits === 9) {
+                            document.getElementById('completionMessage').classList.add('show');
+                        }
+                        
                         showModal(target.label);
                     }
                 });
@@ -1286,7 +1323,6 @@
             
             content += '<div class="modal-links">';
             content += `<a href="${data.link}" target="_blank" class="card-link">View More</a>`;
-            content += `<a href="mailto:kulkarni.samp@northeastern.edu" class="card-link">Contact</a>`;
             content += '</div>';
             
             document.getElementById('modalContent').innerHTML = content;
@@ -1361,6 +1397,12 @@
                     const knowledgePercent = (hits / 9) * 100;
                     document.getElementById('hits').textContent = hits;
                     document.getElementById('knowledgeFill').style.width = knowledgePercent + '%';
+                    
+                    // Show completion message when all targets are hit
+                    if (hits === 9) {
+                        document.getElementById('completionMessage').classList.add('show');
+                    }
+                    
                     showModal(target.label);
                 }
             });
